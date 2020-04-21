@@ -1,8 +1,8 @@
-﻿using Lab1.LogsAndExceptions;
+﻿using Lab1.Services.Exceptions;
 
 namespace Lab1
 {
-    public class ValidatorInputField
+    public class ValidationOfFieldValue
     {
         public static void ValidateType(string obj, bool mustBeString)
         {
@@ -25,11 +25,12 @@ namespace Lab1
                         throw new MarkFieldException(" marks must be a positive integer.");
                     }
                 }
-                if (obj == "" || obj == null)
+                if (obj == string.Empty || obj == null)
                 {
                     throw new MarkFieldException(" marks can't be emtry");
                 }
             }
         }
     }
+
 }

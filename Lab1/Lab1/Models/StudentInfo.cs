@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Lab1.Models
 {
     [DataContract]
-    public class Student
+    public class StudentInfo
     {
         [DataMember]
         public string Name { get; set; }
@@ -17,10 +20,7 @@ namespace Lab1.Models
         public string MiddleName { get; set; }
 
         [DataMember]
-        public List<double> Marks { get; set; }
-
-        [IgnoreDataMember]
-        public double AverageMark => Marks.Average();
+        public double AverageGrade { get; set; }
 
     }
 }

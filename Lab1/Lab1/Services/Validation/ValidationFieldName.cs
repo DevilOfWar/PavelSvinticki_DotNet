@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Lab1.LogsAndExceptions;
+using Lab1.Services.Exceptions;
 
-namespace Lab1
+namespace Lab1.Services.Validation
 {
-    public class ValidationInput
+    public static class ValidationFieldName
     {
-        static public void Validate(string obj)
+        public static void Validate(string obj)
         {
             List<string> list = obj.Split(',').ToList();
             if (list.Count() < 3)

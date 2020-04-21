@@ -1,14 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CommandLine;
-using System;
-using Lab1.LogsAndExceptions;
+using NLog;
+using Lab1.Services.Exceptions;
+using Lab1.Services.Interfaces;
+using Lab1.Models;
+using Lab1.Services.IOSystem.Readers;
+using Lab1.Services.IOSystem.Writers;
 
 namespace Lab1
 {
     class Program
     {
+        public static IReader<Student> Reader { get; set; } = new CsvReader();
+        public static ILogger Logger { get; set; } = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
-        {            
+        {
+            var config = new NLog.Config.LoggingConfiguration();
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "file.txt" };
+            var logconsole = new NLog.Targets.ConsoleTarget("logconsole");
+            config.AddRule(LogLevel.Trace, LogLevel.Fatal, logconsole);
+            config.AddRule(LogLevel.Trace, LogLevel.Fatal, logfile);
+            NLog.LogManager.Configuration = config;
             Options options = new Options();
             Parser.Default.ParseArguments<Options>(args).WithParsed((Options parsedOptions) => { options = parsedOptions; });
             try
@@ -35,17 +49,17 @@ namespace Lab1
                     options.OutputFile += "." + options.OutputFileFormat.ToLower();
                 }                
                 List<string> strList = new List<string>();
-                List<Student> file = Reader.ReadFile(options.InputFile, out strList);
+                List<Student> file = Reader.Read(options.InputFile, out strList).ToList();
                 if (file != null && file.Count != 0)
                 {
                     if (options.OutputFileFormat.Equals("JSON"))
                     {
-                        WriterJSON writer = new WriterJSON();
+                        JsonWriter writer = new JsonWriter();
                         writer.Write(file, strList, options.OutputFile);
                     }
                     else if (options.OutputFileFormat.Equals("Excel"))
                     {
-                        WriterExcel writer = new WriterExcel();
+                        ExcelWriter writer = new ExcelWriter();
                         writer.Write(file, strList, options.OutputFile);
                     }
                     else
@@ -64,23 +78,23 @@ namespace Lab1
             }
             catch (IOSystemException ex)
             {
-                Logger.Log("Input/Output System exception: " + ex.Message);
+                Logger.Error(ex, "Input/Output System exception: " + ex.Message);
             }
             catch (FieldNameException ex)
             {
-                Logger.Log("Field Name Exception: " + ex.Message);
+                Logger.Error(ex, "Field Name Exception: " + ex.Message);
             }
             catch (FIOFieldException ex)
             {
-                Logger.Log("FIO Exception: " + ex.Message);
+                Logger.Error(ex, "FIO Exception: " + ex.Message);
             }
             catch (MarkFieldException ex)
             {
-                Logger.Log("Mark Exception: " + ex.Message);
+                Logger.Error(ex, "Mark Exception: " + ex.Message);
             }
             catch (Exception ex)
             {
-                Logger.Log("Unexeptable Exception:" + ex.Message);
+                Logger.Error(ex, "Unexeptable Exception:" + ex.Message);
             }
         }
     }

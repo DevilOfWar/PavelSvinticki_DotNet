@@ -1,5 +1,6 @@
 ﻿using System.IO;
-using Lab1.LogsAndExceptions;
+using Lab1.Services.Exceptions;
+using Lab1.Models;
 
 namespace Lab1
 {
@@ -9,9 +10,9 @@ namespace Lab1
         {
             if (options.InputFile == null || options.OutputFile == null)
             {
-                throw new IOSystemException("Requered arguments not found.");
+                throw new IOSystemException("Not all requered arguments are found");
             }
-            else if (!options.InputFile.EndsWith(".csv"))
+            if (!options.InputFile.EndsWith(".csv"))
             {
                 throw new IOSystemException("Wrong format of input file");
             }

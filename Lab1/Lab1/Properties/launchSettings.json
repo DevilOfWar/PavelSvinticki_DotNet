@@ -1,0 +1,55 @@
+{
+  "profiles": {
+    "Lab1": {
+      "commandName": "Project"
+    },
+    "FirstTestJson": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/1_TestFile.csv\" -o \".../.../Files/Results/1_TestFile\" -f JSON"
+    },
+    "FirstTestExcel": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/1_TestFile.csv\" -o \".../.../Files/Results/1_TestFile\" -f Excel"
+    },
+    "Test2Json": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/2_TestFile.csv\" -o \".../.../Files/Results/2_TestFile\" -f JSON"
+    },
+    "Test2Excel": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/2_TestFile.csv\" -o \".../.../Files/Results/2_TestFile\" -f Excel"
+    },
+    "Test3Json": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/3_TestFile.csv\" -o \".../.../Files/Results/3_TestFile\" -f JSON"
+    },
+    "Test3Excel": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/3_TestFile.csv\" -o \".../.../Files/Results/3_TestFile\" -f Excel"
+    },
+    "Test4Json": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/4_TestFile.csv\" -o \".../.../Files/Results/4_TestFile\" -f JSON"
+    },
+    "Test4Excel": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/4_TestFile.csv\" -o \".../.../Files/Results/4_TestFile\" -f Excel"
+    },
+    "Test5Json": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/5_TestFile.csv\" -o \".../.../Files/Results/5_TestFile\" -f JSON"
+    },
+    "Test5Excel": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/5_TestFile.csv\" -o \".../.../Files/Results/5_TestFile\" -f Excel"
+    },
+    "Test6Json": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/6_TestFile.csv\" -o \".../.../Files/Results/6_TestFile\" -f JSON"
+    },
+    "Test6Excel": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \".../.../Files/Data/6_TestFile.csv\" -o \".../.../Files/Results/6_TestFile\" -f Excel"
+    }
+  }
+}
