@@ -6,8 +6,12 @@ namespace Lab1
     public static class ValidationProgramArguments
     {
         public static void Validation(Options options)
-        {           
-            if (!options.InputFile.EndsWith(".csv"))
+        {
+            if (options.InputFile == null || options.OutputFile == null)
+            {
+                throw new IOSystemException("Requered arguments not found.");
+            }
+            else if (!options.InputFile.EndsWith(".csv"))
             {
                 throw new IOSystemException("Wrong format of input file");
             }
