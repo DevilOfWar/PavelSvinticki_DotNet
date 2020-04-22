@@ -23,17 +23,16 @@ namespace Lab1.Services.IOSystem.Readers
                 while (!streamReader.EndOfStream)
                 {
                     string pattern = streamReader.ReadLine();
-
+                    List<string> patterns = StudentsCsvParser.ParsePattern(pattern).ToList();
                     if (firstString)
                     {
-                        fieldNames = pattern.Split(',', ';').ToList();
+                        fieldNames = patterns;
                         firstString = false;
                     }
                     else
                     {
-                        if (pattern.Split(',', ';').Count() != fieldNames.Count)
+                        if (patterns.Count != fieldNames.Count)
                             throw new MarkFieldException("Incorrect count of marks");
-
                         Student student = pattern.ParseStudent();
                         student.Validate();
                         students.Add(student);

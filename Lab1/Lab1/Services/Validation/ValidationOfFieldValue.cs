@@ -4,7 +4,7 @@ namespace Lab1.Services.Validation
 {
     public class ValidationOfFieldValue
     {
-        public static void ValidateType(string obj, bool mustBeString)
+        public static void Validate(string obj, bool mustBeString)
         {
             if (mustBeString)
             {

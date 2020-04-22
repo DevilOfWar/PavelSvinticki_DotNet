@@ -8,6 +8,7 @@ using Lab1.Services.Exceptions;
 using Lab1.Services.Interfaces;
 using Lab1.Services.IOSystem.Readers;
 using Lab1.Services.IOSystem.Writers;
+using Lab1.Services.Validation;
 
 namespace Lab1
 {
@@ -28,14 +29,6 @@ namespace Lab1
             try
             {
                 ValidationProgramArguments.Validation(options);
-                if (options.InputFile.Equals(""))
-                {
-                    options.InputFile = @"...\File.csv";
-                }
-                if (options.OutputFile.Equals(""))
-                {
-                    options.OutputFile = @"...\File_out";
-                }
                 if (options.OutputFileFormat.Equals(""))
                 {
                     options.OutputFileFormat = "Excel";
@@ -95,6 +88,7 @@ namespace Lab1
             catch (Exception ex)
             {
                 Logger.Error(ex, "Unexeptable Exception:" + ex.Message);
+                throw;
             }
         }
     }

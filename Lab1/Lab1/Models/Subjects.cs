@@ -8,7 +8,7 @@ namespace Lab1.Models
     public class Subjects
     {
         [DataMember]
-        public const string _name = "Средний балл по предметам";
+        public const string _name = "Average subject marks:";
 
         [DataMember]
         public List<double> AverageSubjectMarks { get; set; } = new List<double>();
@@ -23,7 +23,7 @@ namespace Lab1.Models
             for (int i = 0;i < countOfSubjects;i++)
                 AverageSubjectMarks.Add(students.Select(t => t.Marks[i]).Average());
 
-            AverageMark = "Средняя успеваемость: " + AverageSubjectMarks.Average();
+            AverageMark = "Average academic performance: " + AverageSubjectMarks.Average();
         }
     }
 }

@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Lab1.Services.Exceptions;
+using Lab1.Services.Parsers;
 
 namespace Lab1.Services.Validation
 {
-    public static class ValidationFieldName
+    public class ValidationFieldName
     {
-        public static void Validate(string obj)
+        public static void Validate(string fieldNames)
         {
-            List<string> list = obj.Split(',').ToList();
+            List<string> list = StudentsCsvParser.ParsePattern(fieldNames).ToList();
             if (list.Count() < 3)
             {
                 throw new FieldNameException(" not enouch columns");
