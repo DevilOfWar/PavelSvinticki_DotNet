@@ -17,13 +17,11 @@ namespace Lab1.Services.Validation
             else if (string.IsNullOrEmpty(student.Name) || string.IsNullOrEmpty(student.MiddleName) || string.IsNullOrEmpty(student.Surname))
                 throw new FIOFieldException("Problem with FIO");
         }
-
         public static void Validate(this Subjects subjects)
         {
             if(subjects.AverageSubjectMarks.Any(t => t < 0))
                 throw new MarkFieldException("Subjects has a wrong average mark or marks");
         }
-
         public static void Validate(this StudentInfo studentInfo)
         {
             if (studentInfo.AverageGrade < 0)
@@ -32,6 +30,5 @@ namespace Lab1.Services.Validation
                 string.IsNullOrEmpty(studentInfo.MiddleName) || string.IsNullOrEmpty(studentInfo.Surname))
                 throw new FIOFieldException("Problem with FIO");
         }
-
     }
 }

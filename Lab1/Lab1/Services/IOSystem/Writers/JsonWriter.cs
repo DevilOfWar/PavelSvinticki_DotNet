@@ -20,7 +20,6 @@ namespace Lab1.Services.IOSystem.Writers
                     Surname = t.Surname,
                     AverageGrade = t.AverageMark
                 }).ToList();
-
                 DataContractJsonSerializer serializerStudent = new DataContractJsonSerializer(typeof(List<StudentInfo>));
                 serializerStudent.WriteObject(stream, studentInfos);
                 DataContractJsonSerializer serializerSubjects = new DataContractJsonSerializer(typeof(Subjects));

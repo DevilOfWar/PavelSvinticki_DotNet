@@ -1,6 +1,6 @@
 ﻿using Lab1.Services.Exceptions;
 
-namespace Lab1
+namespace Lab1.Services.Validation
 {
     public class ValidationOfFieldValue
     {

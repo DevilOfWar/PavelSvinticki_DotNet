@@ -11,12 +11,10 @@ namespace Lab1.Services.Parsers
         {
             Student student = new Student();
             List<string> listOfValues = pattern.Split(',', ';').ToList();
-
             student.Surname = listOfValues[0];
             student.Name = listOfValues[1];
             student.MiddleName = listOfValues[2];
             student.Marks = listOfValues.Skip(3).Select(t => double.Parse(t)).ToList();
-
             return student;
         }
 

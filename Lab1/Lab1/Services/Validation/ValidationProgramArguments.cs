@@ -2,7 +2,7 @@
 using Lab1.Services.Exceptions;
 using Lab1.Models;
 
-namespace Lab1
+namespace Lab1.Services.Validation
 {
     public static class ValidationProgramArguments
     {
