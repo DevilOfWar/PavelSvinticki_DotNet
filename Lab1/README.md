@@ -15,7 +15,7 @@ ExcelWriter - class, what realize interface IWriter. Method Write write student 
 JsonWriter - class, what realize interface IWriter. Method Write serialize only average marks of every student and subject.
 IReader - interface with method Read. This method take path to input file (path), list of string to out (fieldNames). It return collection of student (as return value of method) and fieldNames (as out param of method).
 CsvReader - class, what relize interface IReader. Realize method Read for collection of Students. Use this class to read information about students from .csv file.
-StudentsCsvParser - static class, than convert string to object of class Student. Method ParseStudent take string pattern, parse by ";" or ",", create new object of class Student and use this object as return value. Used in CsvReader.
+StudentsCsvParser - static class, than convert string to object of class Student. Method ParseStudent take string pattern, parse by ";" or ",", create new object of class Student and use this object as return value. Method ParsePattern parse incoming string (pattern) by ";" or "," to IEnumarable<string> collection and return this collection.
 FieldNameException, FIOFieldException, IOSystemException and MarkFieldException - exception classes, created to easier identification of error.
 ValidationFieldName, ValidationOfFieldValue, ValidationProgramArguments and ValidatorOfModels - validation classes, that validate some items. For example, ValidationProgramArguments validate programm arguments, ValidationOfFieldValue - value of field.
 Options - model class, that contains programm arguments, like path to input file (property inputFile), path to output file(property outputFile) and output format (property outputFileFormar).
