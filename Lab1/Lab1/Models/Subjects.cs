@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace Lab1.Models
 {
-    [DataContract]
+    //[DataContract]
     public class Subjects
     {
-        [DataMember]
+        //[DataMember]
         public const string _name = "Average subject marks:";
 
-        [DataMember]
+        //[DataMember]
         public List<double> AverageSubjectMarks { get; set; } = new List<double>();
 
-        [DataMember]
+        //[DataMember]
         public string AverageMark { get; set; }
 
         public Subjects(IEnumerable<Student> students)

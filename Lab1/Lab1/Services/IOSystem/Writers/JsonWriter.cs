@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization.Json;
+//using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using Lab1.Models;
 using Lab1.Services.Interfaces;
 
@@ -9,7 +10,7 @@ namespace Lab1.Services.IOSystem.Writers
 {
     public class JsonWriter : IWriter<Student>
     {
-        public void Write(IEnumerable<Student> collection, IEnumerable<string> fieldNames, string path)
+        public async void Write(IEnumerable<Student> collection, IEnumerable<string> fieldNames, string path)
         {
             using (FileStream stream = new FileStream(path, FileMode.OpenOrCreate))
             {
@@ -20,10 +21,13 @@ namespace Lab1.Services.IOSystem.Writers
                     Surname = t.Surname,
                     AverageGrade = t.AverageMark
                 }).ToList();
-                DataContractJsonSerializer serializerStudent = new DataContractJsonSerializer(typeof(List<StudentInfo>));
+                await JsonSerializer.SerializeAsync<List<StudentInfo>>(stream, studentInfos);
+                await JsonSerializer.SerializeAsync<Subjects>(stream, new Subjects(collection));
+                /*DataContractJsonSerializer serializerStudent = new DataContractJsonSerializer(typeof(List<StudentInfo>));
                 serializerStudent.WriteObject(stream, studentInfos);
                 DataContractJsonSerializer serializerSubjects = new DataContractJsonSerializer(typeof(Subjects));
-                serializerSubjects.WriteObject(stream, new Subjects(collection));
+                serializerSubjects.WriteObject(stream, new Subjects(collection));*/
+
             }
         }
     }

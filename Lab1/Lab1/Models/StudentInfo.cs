@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab1.Models
 {
-    [DataContract]
+    //[DataContract]
     public class StudentInfo
     {
-        [DataMember]
+        //[DataMember]
         public string Name { get; set; }
 
-        [DataMember]
+        //[DataMember]
         public string Surname { get; set; }
 
-        [DataMember]
+        //[DataMember]
         public string MiddleName { get; set; }
 
-        [DataMember]
+        //[DataMember]
         public double AverageGrade { get; set; }
 
     }

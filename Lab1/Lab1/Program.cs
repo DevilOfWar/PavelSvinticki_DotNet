@@ -23,7 +23,7 @@ namespace Lab1
             var logconsole = new NLog.Targets.ConsoleTarget("logconsole");
             config.AddRule(LogLevel.Trace, LogLevel.Fatal, logconsole);
             config.AddRule(LogLevel.Trace, LogLevel.Fatal, logfile);
-            NLog.LogManager.Configuration = config;
+            LogManager.Configuration = config;
             Options options = new Options();
             Parser.Default.ParseArguments<Options>(args).WithParsed((Options parsedOptions) => { options = parsedOptions; });
             try

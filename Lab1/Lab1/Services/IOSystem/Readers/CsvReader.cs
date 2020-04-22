@@ -13,8 +13,6 @@ namespace Lab1.Services.IOSystem.Readers
     {
         public IEnumerable<Student> Read(string path, out List<string> fieldNames)
         {
-            path.CsvPathValidation();
-            path.CheckFileExistance();
             List<Student> students = new List<Student>();
             bool firstString = true;
             fieldNames = new List<string>();
