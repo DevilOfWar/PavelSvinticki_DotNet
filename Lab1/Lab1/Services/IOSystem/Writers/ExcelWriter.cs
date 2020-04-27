@@ -34,7 +34,7 @@ namespace Lab1.Services.IOSystem.Writers
                     indexLine++;
                 }
                 Subjects AverageSubject = new Subjects(collection.ToList());
-                workSheet.Cells[indexLine, 1].Value = Subjects._name;
+                workSheet.Cells[indexLine, 1].Value = Subjects.NAME;
                 indexColumn = 4;
                 AverageSubject.AverageSubjectMarks.ForEach(mark => workSheet.Cells[indexLine, indexColumn++].Value = mark);
                 workSheet.Cells[indexLine, indexColumn].Value = AverageSubject.AverageMark;

@@ -69,25 +69,13 @@ namespace Lab1
                     throw new IOSystemException("File don't have any correct line.");
                 }
             }
-            catch (IOSystemException ex)
+            catch (Exception ex) when (ex is IOSystemException || ex is FieldNameException || ex is FIOFieldException || ex is MarkFieldException)
             {
-                Logger.Error(ex, "Input/Output System exception: " + ex.Message);
-            }
-            catch (FieldNameException ex)
-            {
-                Logger.Error(ex, "Field Name Exception: " + ex.Message);
-            }
-            catch (FIOFieldException ex)
-            {
-                Logger.Error(ex, "FIO Exception: " + ex.Message);
-            }
-            catch (MarkFieldException ex)
-            {
-                Logger.Error(ex, "Mark Exception: " + ex.Message);
+                Logger.Error(ex, ex.Message);
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Unexeptable Exception:" + ex.Message);
+                Logger.Error(ex, "Unexepted Exception: " + ex.Message);
                 throw;
             }
         }

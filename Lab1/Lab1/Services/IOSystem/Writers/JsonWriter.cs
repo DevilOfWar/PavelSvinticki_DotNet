@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-//using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -23,10 +22,6 @@ namespace Lab1.Services.IOSystem.Writers
                 }).ToList();
                 await JsonSerializer.SerializeAsync<List<StudentInfo>>(stream, studentInfos);
                 await JsonSerializer.SerializeAsync<Subjects>(stream, new Subjects(collection));
-                /*DataContractJsonSerializer serializerStudent = new DataContractJsonSerializer(typeof(List<StudentInfo>));
-                serializerStudent.WriteObject(stream, studentInfos);
-                DataContractJsonSerializer serializerSubjects = new DataContractJsonSerializer(typeof(Subjects));
-                serializerSubjects.WriteObject(stream, new Subjects(collection));*/
 
             }
         }
